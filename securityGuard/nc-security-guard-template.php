@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .15
+ * Version: Latest .16
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -17,6 +17,10 @@
  * Added contact name field
  * Updated color and logo
  * v.15 changed color throughout to blue #4a67d8
+ * 
+ * 2025-09-04 v.16
+ * Replaced security_business:13 field with bus_age:216 field
+ * Updated field mapping for business duration input
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -621,4 +625,5 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>Signature: </strong>      <img src={signature:190}></td>
 </tr>
 </tbody>
+
 </table>
