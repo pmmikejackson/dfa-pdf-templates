@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .16
+ * Version: Latest .17
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -21,6 +21,10 @@
  * 2025-09-04 v.16
  * Replaced security_business:13 field with bus_age:216 field
  * Updated field mapping for business duration input
+ * 
+ * 2025-09-04 v.17
+ * Changed applicant name to display first and last name separately
+ * Updated field mapping for better name formatting
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -613,7 +617,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>NOTICE TO APPLICANTS: This application must be completed in full as the quote will be based solely on the information provided. Any persons who knowingly and with the intent to defraud any insurance company or other person, files an application for insurance containing any false information, or conceals for the purpose of misleading information concerning any fact material thereto, commits a fraudulent act, which is a crime. Be aware of the laws in the states where you operate with regard to the use of firearms and weapons. By signing below, you are verifying that you 1) are aware of, understand and comply with the laws of the states in which you operate and 2) are aware that any claim you submit where an illegal device was used by you, your employee, or a subcontractor doing work for you may be denied.</strong></td>
 </tr>
 <tr>
-<td><strong>Applicant Name: </strong>      {applicant_name:208}</td>
+<td><strong>Applicant Name: </strong>      {applicant_name:208.3} {applicant_name:208.6}</td>
 </tr>
 <tr>
 <td><strong>Applicant Title: </strong>      {applicant_title:167}</td>
