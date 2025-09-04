@@ -112,7 +112,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>Effective Date Desired:</strong>      {effective_date_desired:10}</td>
 </tr>
 <tr>
-<td><strong>How long in the Security business? </strong>      {security_business:13}</td>
+<td><strong>How long in the Security business? </strong>      {bus_age:216}</td>
 </tr>
 <tr>
 <td><strong>How long under this name? </strong>      {under_this_name:15}</td>
@@ -444,7 +444,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 </tr>
 <tr>
 <td style="width: 33%;"><strong>Other**</strong></td>
-<td style="width: 33%;">{other-u:90}</td>
+<td style="width: 33%;">{other-u:210}</td>
 <td style="width: 33%;">{other-a:125}</td>
 </tr>
 </tbody>
@@ -526,22 +526,22 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 100%;"><strong>Apartment Work- Please describe duties. If any government-owned, please provide list of addresses:</strong><br />{apartment_work:192}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Criminal Detention Centers- Please describe all operations/duties performed:</strong><br />{criminal_detention:144}{criminal_detention:194}</td>
+<td style="width: 100%;"><strong>Criminal Detention Centers- Please describe all operations/duties performed:</strong><br />{criminal_detention:194}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Retail Work- Please describe types of stores, duties, and hours that guard(s) are on duty:</strong><br />{retail_work:145}{retail_work:193}</td>
+<td style="width: 100%;"><strong>Retail Work- Please describe types of stores, duties, and hours that guard(s) are on duty:</strong><br />{retail_work:193}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Special Events- Please describe events, locations and duties:</strong><br />{special:146}{special:195}</td>
+<td style="width: 100%;"><strong>Special Events- Please describe events, locations and duties:</strong><br />{special:195}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Bodyguard Work- Please describe duties. Any athletes, celebrities or entertainers? </strong> {any_athletes:148}{any_athletes:197}<br />{bodyguard_work:147}{bodyguard_work:196}</td>
+<td style="width: 100%;"><strong>Bodyguard Work- Please describe duties. Any athletes, celebrities or entertainers? </strong> {any_athletes:148}{any_athletes:197}<br />{bodyguard_work:196}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Security Consulting- Please describe consulting clients and scope of services provided</strong><br />{security_consulting:149}{security_consulting:198}</td>
+<td style="width: 100%;"><strong>Security Consulting- Please describe consulting clients and scope of services provided</strong><br />{security_consulting:198}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Other- Please describe all operations/duties performed:</strong><br />{other_operations:150}{other_operations:199}</td>
+<td style="width: 100%;"><strong>Other- Please describe all operations/duties performed:</strong><br />{other_operations:199}</td>
 </tr>
 </tbody>
 </table>
@@ -609,7 +609,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>NOTICE TO APPLICANTS: This application must be completed in full as the quote will be based solely on the information provided. Any persons who knowingly and with the intent to defraud any insurance company or other person, files an application for insurance containing any false information, or conceals for the purpose of misleading information concerning any fact material thereto, commits a fraudulent act, which is a crime. Be aware of the laws in the states where you operate with regard to the use of firearms and weapons. By signing below, you are verifying that you 1) are aware of, understand and comply with the laws of the states in which you operate and 2) are aware that any claim you submit where an illegal device was used by you, your employee, or a subcontractor doing work for you may be denied.</strong></td>
 </tr>
 <tr>
-<td><strong>Applicant Name: </strong>      {applicant_name:166}</td>
+<td><strong>Applicant Name: </strong>      {applicant_name:208}</td>
 </tr>
 <tr>
 <td><strong>Applicant Title: </strong>      {applicant_title:167}</td>
