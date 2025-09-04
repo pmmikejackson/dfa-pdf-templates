@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFA Insurance - Security Industry Application</title>
+    <style>
+        @page {
+            size: 8.5in 11in;
+            margin: 0.5in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            line-height: 1.3;
+            color: #000;
+            background: #fff;
+        }
+
+        .page {
+            width: 7.5in;
+            min-height: 10in;
+            margin: 0 auto;
+            background: #fff;
+            page-break-after: always;
+            padding: 15px;
+            border: 2px solid #000;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            flex: 1;
+        }
+
+        .logo {
+            border: 2px solid #000;
+            background: #000;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .header-subtitle {
+            font-size: 9px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 8px;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: #f0f0f0;
+        }
+
+        .progress-title {
+            font-weight: bold;
+            font-size: 11px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .step-box {
+            width: 18%;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #000;
+            font-size: 8px;
+            background: #fff;
+        }
+
+        .step-box.current {
+            background: #000;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #000;
+        }
+
+        .section-header {
+            background: #000;
+            color: #fff;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .section-content {
+            padding: 12px;
+            background: #fff;
+        }
+
+        /* Form Elements */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .form-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .form-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-size: 9px;
+        }
+
+        .required {
+            color: #000;
+            font-weight: bold;
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        input[type="date"], 
+        input[type="number"],
+        select, 
+        textarea {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid #000;
+            font-size: 9px;
+            background: #fff;
+        }
+
+        textarea {
+            height: 50px;
+            resize: vertical;
+        }
+
+        /* Checkbox Styles */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 8px;
+            padding: 3px 5px;
+            border: 1px solid #000;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0;
+            font-size: 8px;
+        }
+
+        .data-table th {
+            background: #000;
+            color: #fff;
+            padding: 4px 3px;
+            border: 1px solid #000;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 4px 3px;
+            border: 1px solid #000;
+            vertical-align: top;
+        }
+
+        .data-table input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 8px;
+        }
+
+        /* Special Boxes */
+        .info-box {
+            border: 2px solid #000;
+            padding: 8px;
+            margin: 10px 0;
+            background: #f8f8f8;
+        }
+
+        .info-box-title {
+            font-weight: bold;
+            font-size: 9px;
+            margin-bottom: 4px;
+        }
+
+        .info-box-text {
+            font-size: 8px;
+        }
+
+        .value-prop {
+            border: 3px solid #000;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+            background: #f0f0f0;
+        }
+
+        .value-prop h2 {
+            font-size: 13px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .benefit {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: center;
+            font-size: 8px;
+            background: #fff;
+        }
+
+        .benefit-title {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .signature-box {
+            text-align: center;
+            border-top: 2px solid #000;
+            padding-top: 3px;
+            margin-top: 25px;
+            font-size: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 2px solid #000;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        /* Completion Tracker */
+        .completion-tracker {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: 2px solid #000;
+            padding: 6px;
+            font-size: 8px;
+            text-align: center;
+            width: 70px;
+            background: #fff;
+        }
+
+        .completion-percentage {
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* Print Optimization */
+        @media print {
+            body { font-size: 9px; }
+            .page { margin: 0; padding: 12px; }
+            .section { break-inside: avoid; }
+        }
+
+        /* High Contrast Elements */
+        .priority-section {
+            border: 3px solid #000;
+        }
+
+        .required-section {
+            background: #f8f8f8;
+        }
+
+        .warning-box {
+            border: 3px solid #000;
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Introduction and Basic Information -->
+    <div class="page">
+        <div class="completion-tracker">
+            <div class="completion-percentage">20%</div>
+            <div>Complete</div>
+        </div>
+
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">DFA</div>
+                <div class="header-title">Security Industry General Liability Application</div>
+                <div class="header-subtitle">Professional Insurance for Security Industry</div>
+            </div>
+            <div class="contact-info">
+                P.O. Box 1868<br>
+                Rockwall, Texas 75087<br>
+                Phone: (214) 646-3347<br>
+                Fax: (214) 943-6531
+            </div>
+        </div>
+
+        <div class="value-prop">
+            <h2>Professional Security Industry Coverage</h2>
+            <p>Specialized liability insurance designed for security professionals</p>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-title">Comprehensive Coverage</div>
+                    <div>Full E&O and General Liability</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Fast Processing</div>
+                    <div>Quote within 24 hours</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Industry Expertise</div>
+                    <div>Specialized for security business</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-title">Application Progress</div>
+            <div class="progress-steps">
+                <div class="step-box current">
+                    <strong>STEP 1</strong><br>
+                    Basic Info
+                </div>
+                <div class="step-box">
+                    <strong>STEP 2</strong><br>
+                    Business Details
+                </div>
+                <div class="step-box">
+                    <strong>STEP 3</strong><br>
+                    Operations
+                </div>
+                <div class="step-box">
+                    <strong>STEP 4</strong><br>
+                    Coverage
+                </div>
+                <div class="step-box">
+                    <strong>STEP 5</strong><br>
+                    Submit
+                </div>
+            </div>
+        </div>
+
+        <div class="section priority-section">
+            <div class="section-header">SECTION 1: ESSENTIAL BUSINESS INFORMATION</div>
+            <div class="section-content required-section">
+                <div class="info-box">
+                    <div class="info-box-title">GETTING STARTED</div>
+                    <div class="info-box-text">Complete this section first. We use this information to customize your application and determine coverage options.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="insuredName">Business Name (Including DBA's) <span class="required">*</span></label>
+                    <input type="text" id="insuredName" name="insuredName" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="contactName">Primary Contact Name <span class="required">*</span></label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactTitle">Title/Position <span class="required">*</span></label>
+                        <input type="text" id="contactTitle" name="contactTitle" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-3">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cell">Cell Phone</label>
+                        <input type="tel" id="cell" name="cell">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mailingAddress">Mailing Address <span class="required">*</span></label>
+                    <input type="text" id="mailingAddress" name="mailingAddress" required>
+                </div>
+
+                <div class="form-grid-3">
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State <span class="required">*</span></label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <option value="TX">Texas</option>
+                            <option value="CA">California</option>
+                            <option value="FL">Florida</option>
+                            <option value="NY">New York</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code <span class="required">*</span></label>
+                        <input type="text" id="zip" name="zip" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Physical Address (if different from mailing)</label>
+                    <input type="text" name="physicalAddress" placeholder="Street Address">
+                    <div class="form-grid-3" style="margin-top: 6px;">
+                        <input type="text" name="physicalCity" placeholder="City">
+                        <select name="physicalState">
+                            <option value="">State</option>
+                            <option value="TX">Texas</option>
+                            <option value="CA">California</option>
+                        </select>
+                        <input type="text" name="physicalZip" placeholder="ZIP Code">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="effectiveDate">Desired Effective Date <span class="required">*</span></label>
+                        <input type="date" id="effectiveDate" name="effectiveDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="licenseNumber">Security License Number</label>
+                        <input type="text" id="licenseNumber" name="licenseNumber">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 2: BUSINESS STRUCTURE</div>
+            <div class="section-content">
+                <div class="form-grid-4">
+                    <div class="checkbox-item">
+                        <input type="radio" name="businessType" value="individual" id="individual">
+                        <label for="individual">Individual</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="radio" name="businessType" value="partnership" id="partnership">
+                        <label for="partnership">Partnership</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="radio" name="businessType" value="corporation" id="corporation">
+                        <label for="corporation">Corporation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="radio" name="businessType" value="other" id="other">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fein">Federal EIN <span class="required">*</span></label>
+                        <input type="text" id="fein" name="fein" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yearsInSecurity">Years in Security Business <span class="required">*</span></label>
+                        <select id="yearsInSecurity" name="yearsInSecurity" required>
+                            <option value="">Select</option>
+                            <option value="0-1">0-1 years</option>
+                            <option value="2-5">2-5 years</option>
+                            <option value="6-10">6-10 years</option>
+                            <option value="11-20">11-20 years</option>
+                            <option value="20+">20+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Classification - Percentage of business from each area (must total 100%) <span class="required">*</span></label>
+                    <div class="form-grid-4">
+                        <div class="form-group">
+                            <label for="securityServicePct">Security Service (%)</label>
+                            <input type="number" id="securityServicePct" name="securityServicePct" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="investigationsPct">Investigations (%)</label>
+                            <input type="number" id="investigationsPct" name="investigationsPct" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="consultingPct">Consulting (%)</label>
+                            <input type="number" id="consultingPct" name="consultingPct" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="alarmServicePct">Alarm Service (%)</label>
+                            <input type="number" id="alarmServicePct" name="alarmServicePct" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Client Information and Operations -->
+    <div class="page">
+        <div class="completion-tracker">
+            <div class="completion-percentage">40%</div>
+            <div>Complete</div>
+        </div>
+
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">DFA</div>
+                <div class="header-title">Security Industry Application - Page 2</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 3: COVERAGE LIMITS</div>
+            <div class="section-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eachOccurrence">Each Occurrence Limit <span class="required">*</span></label>
+                        <select id="eachOccurrence" name="eachOccurrence" required>
+                            <option value="">Select Amount</option>
+                            <option value="500000">$500,000</option>
+                            <option value="1000000">$1,000,000</option>
+                            <option value="2000000">$2,000,000</option>
+                            <option value="5000000">$5,000,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="aggregate">Aggregate Limit <span class="required">*</span></label>
+                        <select id="aggregate" name="aggregate" required>
+                            <option value="">Select Amount</option>
+                            <option value="1000000">$1,000,000</option>
+                            <option value="2000000">$2,000,000</option>
+                            <option value="4000000">$4,000,000</option>
+                            <option value="10000000">$10,000,000</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you assume any duties not related to security for clients?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="nonSecurityDuties" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="nonSecurityDuties" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <textarea name="nonSecurityDutiesDetail" placeholder="If yes, please explain"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 4: TOP 5 CLIENTS</div>
+            <div class="section-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="35%">Client Name</th>
+                            <th width="65%">Description of Services Provided</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="client1Name"></td>
+                            <td><input type="text" name="client1Services"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="client2Name"></td>
+                            <td><input type="text" name="client2Services"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="client3Name"></td>
+                            <td><input type="text" name="client3Services"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="client4Name"></td>
+                            <td><input type="text" name="client4Services"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="client5Name"></td>
+                            <td><input type="text" name="client5Services"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Are majority of clients under contract?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="clientsUnderContract" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="clientsUnderContract" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="holdHarmlessClauses">How many include hold harmless clauses?</label>
+                        <input type="number" id="holdHarmlessClauses" name="holdHarmlessClauses" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Is workers' compensation coverage currently in force?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="workersComp" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="workersComp" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <input type="text" name="workersCompExplanation" placeholder="If no, please explain">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 5: OPERATIONS</div>
+            <div class="section-content">
+                <div class="form-group">
+                    <label>Ownership Structure</label>
+                    <textarea name="ownershipStructure" placeholder="List owners, partners, shareholders with percentage of ownership and background in security industry"></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Will principals perform guard/investigative operations?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="principalsPerformOperations" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="principalsPerformOperations" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="avgOfficersPerSupervisor">Average number of officers per supervisor</label>
+                        <input type="number" id="avgOfficersPerSupervisor" name="avgOfficersPerSupervisor" min="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Describe duties of supervisors</label>
+                    <textarea name="supervisorDuties"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Employee training consists of (check all that apply):</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="written_manual">
+                            <label>Written Manual</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="report_writing">
+                            <label>Report Writing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="powers_of_arrest">
+                            <label>Powers of Arrest</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="on_the_job">
+                            <label>On the Job</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="firearms">
+                            <label>Firearms</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="cpr">
+                            <label>CPR</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="training[]" value="other">
+                            <label>Other</label>
+                        </div>
+                    </div>
+                    <input type="text" name="trainingOtherDetail" placeholder="If other, please specify" style="margin-top: 6px;">
+                </div>
+
+                <div class="form-group">
+                    <label>Pre-Employment screening procedures (check all that apply):</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="driving_record">
+                            <label>Driving Record (MVR)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="psychological_test">
+                            <label>Psychological Test</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="drug_screen">
+                            <label>Drug Screen</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="fingerprint_check">
+                            <label>Fingerprint Check</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="personal_references">
+                            <label>Personal References</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="screening[]" value="other">
+                            <label>Other</label>
+                        </div>
+                    </div>
+                    <input type="text" name="screeningOtherDetail" placeholder="If other, please specify" style="margin-top: 6px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Payroll and Equipment -->
+    <div class="page">
+        <div class="completion-tracker">
+            <div class="completion-percentage">60%</div>
+            <div>Complete</div>
+        </div>
+
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">DFA</div>
+                <div class="header-title">Security Industry Application - Page 3</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 6: STAFFING NUMBERS</div>
+            <div class="section-content">
+                <div class="form-grid-4">
+                    <div class="form-group">
+                        <label for="hoursUnArmed">Annual Hours - Unarmed</label>
+                        <input type="number" id="hoursUnArmed" name="hoursUnArmed" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="hoursArmed">Annual Hours - Armed</label>
+                        <input type="number" id="hoursArmed" name="hoursArmed" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="officersFullTime">Officers - Full Time</label>
+                        <input type="number" id="officersFullTime" name="officersFullTime" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="officersPartTime">Officers - Part Time</label>
+                        <input type="number" id="officersPartTime" name="officersPartTime" min="0">
+                    </div>
+                </div>
+
+                <div class="form-grid-4">
+                    <div class="form-group">
+                        <label for="officersUnarmed">Officers - Unarmed</label>
+                        <input type="number" id="officersUnarmed" name="officersUnarmed" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="officersArmed">Officers - Armed</label>
+                        <input type="number" id="officersArmed" name="officersArmed" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="avgHourlyWageFT">Avg Hourly Wage - Full Time</label>
+                        <input type="text" id="avgHourlyWageFT" name="avgHourlyWageFT" placeholder="$">
+                    </div>
+                    <div class="form-group">
+                        <label for="avgHourlyWagePT">Avg Hourly Wage - Part Time</label>
+                        <input type="text" id="avgHourlyWagePT" name="avgHourlyWagePT" placeholder="$">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="annualCorporateRevenue">Annual Corporate Revenue</label>
+                        <input type="text" id="annualCorporateRevenue" name="annualCorporateRevenue" placeholder="$">
+                    </div>
+                    <div class="form-group">
+                        <label for="alarmOperationsRevenue">Alarm Operations Revenue</label>
+                        <input type="text" id="alarmOperationsRevenue" name="alarmOperationsRevenue" placeholder="$">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">INDEPENDENT CONTRACTORS</div>
+                    <div class="info-box-text">Independent Contractors are defined as workers who carry their own license and liability insurance. All other employees (1099 or W2) are considered "on the payroll".</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you have any independent contractors?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="independentContractors" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="independentContractors" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <input type="text" name="independentContractorSalaries" placeholder="If yes, please provide their total salaries: $">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 7: EQUIPMENT AND SPECIAL OPERATIONS</div>
+            <div class="section-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Use golf carts for patrol?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="golfCarts" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="golfCarts" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Golf carts equipped with lights?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="golfCartLights" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="golfCartLights" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Will the public be transported?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="transportPublic" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="transportPublic" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Are driving records checked?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="checkDrivingRecords" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="checkDrivingRecords" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Do you anticipate using dogs? (Must be leashed, max 6 ft)</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="useDogs" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="useDogs" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Do officers use tasers?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="useTasers" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="useTasers" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="dogsWithHandlers">Number of dogs with handlers</label>
+                        <input type="number" id="dogsWithHandlers" name="dogsWithHandlers" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="dogsWithoutHandlers">Number of dogs without handlers</label>
+                        <input type="number" id="dogsWithoutHandlers" name="dogsWithoutHandlers" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Any operations where jewelry, money, securities or furs are present?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="valuablesSecurity" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="valuablesSecurity" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="professionalAssociations">Professional Association Memberships</label>
+                    <textarea id="professionalAssociations" name="professionalAssociations" placeholder="List professional security associations you belong to"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Annual Payroll Table -->
+    <div class="page">
+        <div class="completion-tracker">
+            <div class="completion-percentage">80%</div>
+            <div>Complete</div>
+        </div>
+
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">DFA</div>
+                <div class="header-title">Security Industry Application - Page 4</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 8: PROJECTED ANNUAL PAYROLL (Not Including Owners and Clerical Staff)</div>
+            <div class="section-content">
+                <div class="info-box">
+                    <div class="info-box-title">PAYROLL INFORMATION</div>
+                    <div class="info-box-text">Enter payroll amounts only for services you actually provide. Leave blank for services you do not offer.</div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Guard Services</th>
+                            <th width="25%">Unarmed Payroll</th>
+                            <th width="25%">Armed Payroll</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Airports (non-public)</td><td><input type="text" name="airportsNonPublicUnarmed"></td><td><input type="text" name="airportsNonPublicArmed"></td></tr>
+                        <tr><td>Airports (public)</td><td><input type="text" name="airportsPublicUnarmed"></td><td><input type="text" name="airportsPublicArmed"></td></tr>
+                        <tr><td>Armored Car</td><td><input type="text" name="armoredCarUnarmed"></td><td><input type="text" name="armoredCarArmed"></td></tr>
+                        <tr><td>Banks</td><td><input type="text" name="banksUnarmed"></td><td><input type="text" name="banksArmed"></td></tr>
+                        <tr><td>Bounty Hunting/Bail Enforcement</td><td><input type="text" name="bountyHuntingUnarmed"></td><td><input type="text" name="bountyHuntingArmed"></td></tr>
+                        <tr><td>Car Dealerships</td><td><input type="text" name="carDealershipsUnarmed"></td><td><input type="text" name="carDealershipsArmed"></td></tr>
+                        <tr><td>Churches</td><td><input type="text" name="churchesUnarmed"></td><td><input type="text" name="churchesArmed"></td></tr>
+                        <tr><td>Construction or Demolition Sites</td><td><input type="text" name="constructionUnarmed"></td><td><input type="text" name="constructionArmed"></td></tr>
+                        <tr><td>Convention/Trade Shows</td><td><input type="text" name="conventionsUnarmed"></td><td><input type="text" name="conventionsArmed"></td></tr>
+                        <tr><td>Criminal Detention Centers</td><td><input type="text" name="detentionCentersUnarmed"></td><td><input type="text" name="detentionCentersArmed"></td></tr>
+                        <tr><td>Executive Protection</td><td><input type="text" name="executiveProtectionUnarmed"></td><td><input type="text" name="executiveProtectionArmed"></td></tr>
+                        <tr><td>Fast Food Establishments</td><td><input type="text" name="fastFoodUnarmed"></td><td><input type="text" name="fastFoodArmed"></td></tr>
+                        <tr><td>Federal Government Contracts</td><td><input type="text" name="federalContractsUnarmed"></td><td><input type="text" name="federalContractsArmed"></td></tr>
+                        <tr><td>Gated Communities/Retirement</td><td><input type="text" name="gatedCommunitiesUnarmed"></td><td><input type="text" name="gatedCommunitiesArmed"></td></tr>
+                        <tr><td>Government-Owned Housing</td><td><input type="text" name="govtHousingUnarmed"></td><td><input type="text" name="govtHousingArmed"></td></tr>
+                        <tr><td>Hotels/Motels</td><td><input type="text" name="hotelsUnarmed"></td><td><input type="text" name="hotelsArmed"></td></tr>
+                        <tr><td>Industrial (Factories, Warehouses)</td><td><input type="text" name="industrialUnarmed"></td><td><input type="text" name="industrialArmed"></td></tr>
+                        <tr><td>Institutions (Hospitals, Clinics)</td><td><input type="text" name="institutionsUnarmed"></td><td><input type="text" name="institutionsArmed"></td></tr>
+                        <tr><td>Liquor Establishments</td><td><input type="text" name="liquorEstablishmentsUnarmed"></td><td><input type="text" name="liquorEstablishmentsArmed"></td></tr>
+                        <tr><td>Local & State Contracts</td><td><input type="text" name="localStateContractsUnarmed"></td><td><input type="text" name="localStateContractsArmed"></td></tr>
+                        <tr><td>Middle/High Income Housing</td><td><input type="text" name="middleIncomeHousingUnarmed"></td><td><input type="text" name="middleIncomeHousingArmed"></td></tr>
+                        <tr><td>Museums/Galleries</td><td><input type="text" name="museumsUnarmed"></td><td><input type="text" name="museumsArmed"></td></tr>
+                        <tr><td>Office Buildings</td><td><input type="text" name="officeBuildingsUnarmed"></td><td><input type="text" name="officeBuildingsArmed"></td></tr>
+                        <tr><td>Patrol Cars</td><td><input type="text" name="patrolCarsUnarmed"></td><td><input type="text" name="patrolCarsArmed"></td></tr>
+                        <tr><td>Restaurants</td><td><input type="text" name="restaurantsUnarmed"></td><td><input type="text" name="restaurantsArmed"></td></tr>
+                        <tr><td>Retail Stores (Parking Lots, Outside)</td><td><input type="text" name="retailOutsideUnarmed"></td><td><input type="text" name="retailOutsideArmed"></td></tr>
+                        <tr><td>Retail Stores (Inside, Shoplifting)</td><td><input type="text" name="retailInsideUnarmed"></td><td><input type="text" name="retailInsideArmed"></td></tr>
+                        <tr><td>Schools</td><td><input type="text" name="schoolsUnarmed"></td><td><input type="text" name="schoolsArmed"></td></tr>
+                        <tr><td>Special Events (Sports, Concerts)</td><td><input type="text" name="specialEventsUnarmed"></td><td><input type="text" name="specialEventsArmed"></td></tr>
+                        <tr><td>Strike Duty</td><td><input type="text" name="strikeDutyUnarmed"></td><td><input type="text" name="strikeDutyArmed"></td></tr>
+                        <tr><td>Traffic Control</td><td><input type="text" name="trafficControlUnarmed"></td><td><input type="text" name="trafficControlArmed"></td></tr>
+                        <tr><td>Transport/Courier Operations</td><td><input type="text" name="transportCourierUnarmed"></td><td><input type="text" name="transportCourierArmed"></td></tr>
+                        <tr><td>Trucking Terminals</td><td><input type="text" name="truckingTerminalsUnarmed"></td><td><input type="text" name="truckingTerminalsArmed"></td></tr>
+                        <tr><td>Waterfront/Piers/Marinas</td><td><input type="text" name="waterfrontUnarmed"></td><td><input type="text" name="waterfrontArmed"></td></tr>
+                        <tr><td>Other</td><td><input type="text" name="otherServicesUnarmed"></td><td><input type="text" name="otherServicesArmed"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">PRIVATE INVESTIGATIONS</div>
+            <div class="section-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Investigation Services</th>
+                            <th width="25%">Unarmed Payroll</th>
+                            <th width="25%">Armed Payroll</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Executive Protection/Bodyguard Service</td><td><input type="text" name="piExecutiveProtectionUnarmed"></td><td><input type="text" name="piExecutiveProtectionArmed"></td></tr>
+                        <tr><td>Insurance, Legal, Credit, Pre-Employment</td><td><input type="text" name="piInsuranceLegalUnarmed"></td><td><input type="text" name="piInsuranceLegalArmed"></td></tr>
+                        <tr><td>Lie Detection, Polygraph</td><td><input type="text" name="piLieDetectionUnarmed"></td><td><input type="text" name="piLieDetectionArmed"></td></tr>
+                        <tr><td>Process Server</td><td><input type="text" name="piProcessServerUnarmed"></td><td><input type="text" name="piProcessServerArmed"></td></tr>
+                        <tr><td>Security Consultant</td><td><input type="text" name="piSecurityConsultantUnarmed"></td><td><input type="text" name="piSecurityConsultantArmed"></td></tr>
+                        <tr style="background: #f0f0f0; font-weight: bold;"><td><strong>TOTAL</strong></td><td><strong><input type="text" name="totalUnarmedPayroll"></strong></td><td><strong><input type="text" name="totalArmedPayroll"></strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5: Operations Detail and Insurance History -->
+    <div class="page">
+        <div class="completion-tracker">
+            <div class="completion-percentage">100%</div>
+            <div>Complete</div>
+        </div>
+
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">DFA</div>
+                <div class="header-title">Security Industry Application - Page 5</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">SECTION 9: DESCRIPTION OF OPERATIONS</div>
+            <div class="section-content">
+                <div class="info-box">
+                    <div class="info-box-title">OPERATIONS DETAIL</div>
+                    <div class="info-box-text">Provide details only for services where you entered payroll amounts. Skip sections that don't apply.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="airportWork">Airport Work - Describe all operations/duties performed:</label>
+                    <textarea id="airportWork" name="airportWork"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="apartmentWork">Apartment Work - Describe duties. If government-owned, provide addresses:</label>
+                    <textarea id="apartmentWork" name="apartmentWork"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="detentionCenterWork">Criminal Detention Centers - Describe operations/duties:</label>
+                    <textarea id="detentionCenterWork" name="detentionCenterWork"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="retailWork">Retail Work - Describe types of stores, duties, and hours:</label>
+                    <textarea id="retailWork" name="retailWork"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialEvents">Special Events - Describe events, locations and duties:</label>
+                    <textarea id="specialEvents" name="specialEvents"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bodyguardWork">Bodyguard Work - Describe duties:</label>
+                    <textarea id="bodyguardWork" name="bodyguardWork"></textarea>
+                    <div style="margin-top: 5px;">
+                        <label>Any athletes, celebrities or entertainers?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <div class="checkbox-item">
+                                <input type="radio" name="celebrityProtection" value="yes">
+                                <label>Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="celebrityProtection" value="no">
+                                <label>No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="securityConsulting">Security Consulting - Describe clients and scope of services:</label>
+                    <textarea id="securityConsulting" name="securityConsulting"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherOperations">Other Operations - Describe all other operations/duties:</label>
+                    <textarea id="otherOperations" name="otherOperations"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="section priority-section">
+            <div class="section-header">SECTION 10: CURRENT INSURANCE INFORMATION</div>
+            <div class="section-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="currentCarrier">Current Insurance Carrier</label>
+                        <input type="text" id="currentCarrier" name="currentCarrier" placeholder="Enter carrier name or 'None'">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentLimitLiability">Current Limit of Liability</label>
+                        <input type="text" id="currentLimitLiability" name="currentLimitLiability" placeholder="e.g., $1,000,000">
+                    </div>
+                </div>
+
+                <div class="form-grid-4">
+                    <div class="form-group">
+                        <label for="inceptionDate">Inception Date</label>
+                        <input type="date" id="inceptionDate" name="inceptionDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationDate">Expiration Date</label>
+                        <input type="date" id="expirationDate" name="expirationDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentPremium">Premium</label>
+                        <input type="text" id="currentPremium" name="currentPremium" placeholder="$">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentDeductible">Deductible</label>
+                        <input type="text" id="currentDeductible" name="currentDeductible" placeholder="$">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Occurrence Form?</label>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="occurrenceForm" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="occurrenceForm" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section priority-section">
+            <div class="section-header">SECTION 11: CLAIMS HISTORY</div>
+            <div class="section-content">
+                <div class="form-group">
+                    <label>Has any company cancelled or declined to renew liability insurance?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="insuranceCancelled" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="insuranceCancelled" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <textarea name="insuranceCancelledDetail" placeholder="If yes, please explain"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you require staff to report all unusual incidents to management?</label>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="reportIncidents" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="reportIncidents" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Have there been any claims or lawsuits in the past 5 years?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="pastClaims" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="pastClaims" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <textarea name="pastClaimsDetail" placeholder="If yes, please explain - include dates, amounts, and status"></textarea>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">PLEASE ATTACH FIVE YEARS OF COMPANY LOSS RUNS</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you have knowledge of any incidents which may give rise to a future claim?</label>
+                    <div style="display: flex; gap: 15px; margin: 5px 0;">
+                        <div class="checkbox-item">
+                            <input type="radio" name="futureClaims" value="yes">
+                            <label>Yes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" name="futureClaims" value="no">
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <textarea name="futureClaimsDetail" placeholder="If yes, please explain"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="section priority-section">
+            <div class="section-header">SECTION 12: SIGNATURE AND ACKNOWLEDGMENT</div>
+            <div class="section-content">
+                <div class="warning-box">
+                    <div class="warning-title">NOTICE TO APPLICANTS</div>
+                    <div style="font-size: 8px;">This application must be completed in full as the quote will be based solely on the information provided. Any persons who knowingly and with the intent to defraud any insurance company or other person, files an application for insurance containing any false information, or conceals for the purpose of misleading information concerning any fact material thereto, commits a fraudulent act, which is a crime. Be aware of the laws in the states where you operate with regard to the use of firearms and weapons. By signing below, you are verifying that you 1) are aware of, understand and comply with the laws of the states in which you operate and 2) are aware that any claim you submit where an illegal device was used by you, your employee, or a subcontractor doing work for you may be denied.</div>
+                </div>
+
+                <div class="signature-section">
+                    <div class="form-group">
+                        <label for="applicantName">Applicant Name</label>
+                        <input type="text" id="applicantName" name="applicantName" required>
+                        <div class="signature-box">Print Name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantTitle">Applicant Title</label>
+                        <input type="text" id="applicantTitle" name="applicantTitle" required>
+                        <div class="signature-box">Title</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicationDate">Date</label>
+                        <input type="date" id="applicationDate" name="applicationDate" required>
+                        <div class="signature-box">Date</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <div style="border-top: 2px solid #000; width: 300px; margin: 0 auto; padding-top: 5px;">
+                        <strong>Applicant Signature</strong>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <div class="info-box-title">SUBMISSION INSTRUCTIONS</div>
+                    <div class="info-box-text">
+                        <strong>Email:</strong> applications@dfains
