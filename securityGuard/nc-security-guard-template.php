@@ -120,7 +120,17 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>Effective Date Desired:</strong>      {effective_date_desired:10}</td>
 </tr>
 <tr>
-<td><strong>How long in the Security business? </strong>      {bus_age:216}</td>
+<td><strong>How long in the Security business? </strong>      <?php
+$bus_start_date = $form_data['field']['bus_start_date:217'] ?? '';
+if (!empty($bus_start_date)) {
+    $start_date = new DateTime($bus_start_date);
+    $current_date = new DateTime();
+    $interval = $current_date->diff($start_date);
+    echo $interval->y . ' years';
+} else {
+    echo 'N/A';
+}
+?></td>
 </tr>
 <tr>
 <td><strong>How long under this name? </strong>      {under_this_name:15}</td>
