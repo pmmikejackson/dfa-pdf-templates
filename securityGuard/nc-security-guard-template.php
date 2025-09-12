@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .18
+ * Version: Latest .19
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -30,6 +30,11 @@
  * Replaced static bus_age field with dynamic PHP calculation
  * Business age now calculated from start date field (217) automatically
  * Improved accuracy and eliminates manual entry errors
+ * 
+ * 2025-01-27 v.19
+ * Enhanced business age calculation to show months for businesses less than a year old
+ * Now displays "X months" for new businesses and "X years Y months" for established ones
+ * Provides more precise and user-friendly time representation
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -130,8 +135,16 @@ $bus_start_date = rgar( $entry, '217' );
 if ( ! empty( $bus_start_date ) && strtotime( $bus_start_date ) ) {
     $start_date = new DateTime( $bus_start_date );
     $today = new DateTime();
-    $age = $today->diff( $start_date )->y;
-    echo $age . ' years';
+    $diff = $today->diff( $start_date );
+    
+    if ( $diff->y > 0 ) {
+        echo $diff->y . ' years';
+        if ( $diff->m > 0 ) {
+            echo ' ' . $diff->m . ' months';
+        }
+    } else {
+        echo $diff->m . ' months';
+    }
 } else {
     echo 'N/A';
 }
