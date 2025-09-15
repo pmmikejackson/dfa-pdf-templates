@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .19
+ * Version: Latest .20
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -35,6 +35,11 @@
  * Enhanced business age calculation to show months for businesses less than a year old
  * Now displays "X months" for new businesses and "X years Y months" for established ones
  * Provides more precise and user-friendly time representation
+ * 
+ * 2025-01-27 v.20
+ * Reverted business age field back to static field reference (guard_time:218)
+ * Simplified implementation for easier form management and data entry
+ * Maintains consistent field mapping with other form fields
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -130,25 +135,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>Effective Date Desired:</strong>      {effective_date_desired:10}</td>
 </tr>
 <tr>
-<td><strong>How long in the Security business? </strong>      <?php
-$bus_start_date = rgar( $entry, '217' );
-if ( ! empty( $bus_start_date ) && strtotime( $bus_start_date ) ) {
-    $start_date = new DateTime( $bus_start_date );
-    $today = new DateTime();
-    $diff = $today->diff( $start_date );
-    
-    if ( $diff->y > 0 ) {
-        echo $diff->y . ' years';
-        if ( $diff->m > 0 ) {
-            echo ' ' . $diff->m . ' months';
-        }
-    } else {
-        echo $diff->m . ' months';
-    }
-} else {
-    echo 'N/A';
-}
-?></td>
+<td><strong>How long in the Security business? </strong>      {guard_time:218}</td>
 </tr>
 <tr>
 <td><strong>How long under this name? </strong>      {under_this_name:15}</td>
