@@ -183,26 +183,41 @@ if ( ! class_exists( 'GFForms' ) ) {
 <tr>
 <td style="width: 100%;" colspan="2"><strong>Please provide a list of your (5) five largest clients, along with a description of services:</strong></td>
 </tr>
+</table>
+<table style="width: 100%;" cellpadding="5" border="1">
+<tbody>
 <tr>
-<td style="width: 50%;"><strong>Client #1</strong><br />{client_1:224}</td>
-<td style="width: 50%;"><strong>Services</strong><br />{services_1:225}</td>
+<td style="width: 30%;"><strong>Client #1:</strong> {client_1:224}</td>
+<td style="width: 70%;"><strong>Services:</strong> {services_1:225}</td>
 </tr>
+<?php if ( !empty($form_data['field_data'][226]['value']) ) : ?>
 <tr>
-<td style="width: 50%;"><strong>Client #2</strong><br />{client_2:226}</td>
-<td style="width: 50%;"><strong>Services</strong><br />{services_2:227}</td>
+<td style="width: 30%;"><strong>Client #2:</strong> {client_2:226}</td>
+<td style="width: 70%;"><strong>Services:</strong> {services_2:227}</td>
 </tr>
+<?php endif; ?>
+<?php if ( !empty($form_data['field_data'][228]['value']) ) : ?>
 <tr>
-<td style="width: 50%;"><strong>Client #3</strong><br />{client_3:228}</td>
-<td style="width: 50%;"><strong>Services</strong><br />{services_3:229}</td>
+<td style="width: 30%;"><strong>Client #3:</strong> {client_3:228}</td>
+<td style="width: 70%;"><strong>Services:</strong> {services_3:229}</td>
 </tr>
+<?php endif; ?>
+<?php if ( !empty($form_data['field_data'][230]['value']) ) : ?>
 <tr>
-<td style="width: 50%;"><strong>Client #4</strong><br />{client_4:230}</td>
-<td style="width: 50%;"><strong>Services</strong><br />{services_4:231}</td>
+<td style="width: 30%;"><strong>Client #4:</strong> {client_4:230}</td>
+<td style="width: 70%;"><strong>Services:</strong> {services_4:231}</td>
 </tr>
+<?php endif; ?>
+<?php if ( !empty($form_data['field_data'][232]['value']) ) : ?>
 <tr>
-<td style="width: 50%;"><strong>Client #5</strong><br />{client_5:232}</td>
-<td style="width: 50%;"><strong>Services</strong><br />{services_5:233}</td>
+<td style="width: 30%;"><strong>Client #5:</strong> {client_5:232}</td>
+<td style="width: 70%;"><strong>Services:</strong> {services_5:234}</td>
 </tr>
+<?php endif; ?>
+</tbody>
+</table>
+<table style="width: 100%;" cellpadding="5">
+<tbody>
 <tr>
 <td style="width: 100%;"><strong>Are the majority of your clients under contract? </strong>      {clients_under_contract:27}</td>
 </tr>
@@ -229,40 +244,45 @@ if ( ! class_exists( 'GFForms' ) ) {
 <table style="width: 100%;" cellpadding="5">
 <tbody>
 <tr>
-<td style="width: 100%;" colspan="3"><strong>Name of Owner(s), Partner(s) and Shareholder(s), their percentage of ownership and background in this industry:</strong></td>
+<td style="width: 100%;" colspan="4"><strong>Name of Owner(s), Partner(s) and Shareholder(s), their percentage of ownership and background in this industry:</strong></td>
 </tr>
+</table>
+<table style="width: 100%;" cellpadding="5" border="1">
+<tbody>
 <tr>
-<td style="width: 33%;"><strong>Name #1</strong><br />{name_1:241}</td>
-<td style="width: 33%;"><strong>Position</strong><br />{position_1:242}</td>
-<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_1:243}</td>
+<td style="width: 25%;"><strong>Name #1:</strong> {name_1:241}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_1:242}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_1:243}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_1:244}</td>
 </tr>
+<?php if ( !empty($form_data['field_data'][245]['value']) ) : ?>
 <tr>
-<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_1:244}</td>
+<td style="width: 25%;"><strong>Name #2:</strong> {name_2:245}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_2:246}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_2:247}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_2:248}</td>
 </tr>
+<?php endif; ?>
+<?php if ( !empty($form_data['field_data'][249]['value']) ) : ?>
 <tr>
-<td style="width: 33%;"><strong>Name #2</strong><br />{name_2:245}</td>
-<td style="width: 33%;"><strong>Position</strong><br />{position_2:246}</td>
-<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_2:247}</td>
+<td style="width: 25%;"><strong>Name #3:</strong> {name_3:249}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_3:250}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_3:251}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_3:252}</td>
 </tr>
+<?php endif; ?>
+<?php if ( !empty($form_data['field_data'][253]['value']) ) : ?>
 <tr>
-<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_2:248}</td>
+<td style="width: 25%;"><strong>Name #4:</strong> {name_4:253}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_4:254}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_4:255}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_4:256}</td>
 </tr>
-<tr>
-<td style="width: 33%;"><strong>Name #3</strong><br />{name_3:249}</td>
-<td style="width: 33%;"><strong>Position</strong><br />{position_3:250}</td>
-<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_3:251}</td>
-</tr>
-<tr>
-<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_3:252}</td>
-</tr>
-<tr>
-<td style="width: 33%;"><strong>Name #4</strong><br />{name_4:253}</td>
-<td style="width: 33%;"><strong>Position</strong><br />{position_4:254}</td>
-<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_4:255}</td>
-</tr>
-<tr>
-<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_4:256}</td>
-</tr>
+<?php endif; ?>
+</tbody>
+</table>
+<table style="width: 100%;" cellpadding="5">
+<tbody>
 <tr>
 <td style="width: 100%;"><strong>Will the principals perform guard/investigative operations? </strong>      {principals_perform_operations:32}</td>
 </tr>
