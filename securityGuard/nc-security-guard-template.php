@@ -181,7 +181,27 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 100%;"><strong>If “yes”, please explain below.</strong><br />{please_explain_below:25}</td>
 </tr>
 <tr>
-<td style="width: 100%;"><strong>Please provide a list of your (5) five largest clients, along with a description of services: </strong><br />{5_five_largest_clients:26}</td>
+<td style="width: 100%;" colspan="2"><strong>Please provide a list of your (5) five largest clients, along with a description of services:</strong></td>
+</tr>
+<tr>
+<td style="width: 50%;"><strong>Client #1</strong><br />{client_1:224}</td>
+<td style="width: 50%;"><strong>Services</strong><br />{services_1:225}</td>
+</tr>
+<tr>
+<td style="width: 50%;"><strong>Client #2</strong><br />{client_2:226}</td>
+<td style="width: 50%;"><strong>Services</strong><br />{services_2:227}</td>
+</tr>
+<tr>
+<td style="width: 50%;"><strong>Client #3</strong><br />{client_3:228}</td>
+<td style="width: 50%;"><strong>Services</strong><br />{services_3:229}</td>
+</tr>
+<tr>
+<td style="width: 50%;"><strong>Client #4</strong><br />{client_4:230}</td>
+<td style="width: 50%;"><strong>Services</strong><br />{services_4:231}</td>
+</tr>
+<tr>
+<td style="width: 50%;"><strong>Client #5</strong><br />{client_5:232}</td>
+<td style="width: 50%;"><strong>Services</strong><br />{services_5:233}</td>
 </tr>
 <tr>
 <td style="width: 100%;"><strong>Are the majority of your clients under contract? </strong>      {clients_under_contract:27}</td>
