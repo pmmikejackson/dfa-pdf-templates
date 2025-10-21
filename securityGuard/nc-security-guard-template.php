@@ -229,7 +229,39 @@ if ( ! class_exists( 'GFForms' ) ) {
 <table style="width: 100%;" cellpadding="5">
 <tbody>
 <tr>
-<td style="width: 100%;"><strong>Name of Owner(s), Partner(s) and Shareholder(s), their percentage of ownership and background in this industry: </strong><br />{owners_partners_shareholders:31}</td>
+<td style="width: 100%;" colspan="3"><strong>Name of Owner(s), Partner(s) and Shareholder(s), their percentage of ownership and background in this industry:</strong></td>
+</tr>
+<tr>
+<td style="width: 33%;"><strong>Name #1</strong><br />{name_1:241}</td>
+<td style="width: 33%;"><strong>Position</strong><br />{position_1:242}</td>
+<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_1:243}</td>
+</tr>
+<tr>
+<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_1:244}</td>
+</tr>
+<tr>
+<td style="width: 33%;"><strong>Name #2</strong><br />{name_2:245}</td>
+<td style="width: 33%;"><strong>Position</strong><br />{position_2:246}</td>
+<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_2:247}</td>
+</tr>
+<tr>
+<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_2:248}</td>
+</tr>
+<tr>
+<td style="width: 33%;"><strong>Name #3</strong><br />{name_3:249}</td>
+<td style="width: 33%;"><strong>Position</strong><br />{position_3:250}</td>
+<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_3:251}</td>
+</tr>
+<tr>
+<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_3:252}</td>
+</tr>
+<tr>
+<td style="width: 33%;"><strong>Name #4</strong><br />{name_4:253}</td>
+<td style="width: 33%;"><strong>Position</strong><br />{position_4:254}</td>
+<td style="width: 33%;"><strong>Percentage of Ownership</strong><br />{percentage_4:255}</td>
+</tr>
+<tr>
+<td style="width: 100%;" colspan="3"><strong>Background in Security Business</strong><br />{background_4:256}</td>
 </tr>
 <tr>
 <td style="width: 100%;"><strong>Will the principals perform guard/investigative operations? </strong>      {principals_perform_operations:32}</td>
