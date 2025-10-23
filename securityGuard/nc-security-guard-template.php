@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .20
+ * Version: Latest .21
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -40,6 +40,11 @@
  * Reverted business age field back to static field reference (guard_time:218)
  * Simplified implementation for easier form management and data entry
  * Maintains consistent field mapping with other form fields
+ *
+ * 2025-10-23 v.21
+ * Fixed conditional logic for client and owner tables
+ * Changed from $form_data['field_data'][id]['value'] to trim($entry[id]) for more reliable field detection
+ * Ensures all filled client and owner rows display correctly in PDF output
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -190,25 +195,25 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 30%;"><strong>Client #1:</strong> {client_1:224}</td>
 <td style="width: 70%;"><strong>Services:</strong> {services_1:225}</td>
 </tr>
-<?php if ( !empty($form_data['field_data'][226]['value']) ) : ?>
+<?php if ( !empty(trim($entry['226'])) ) : ?>
 <tr>
 <td style="width: 30%;"><strong>Client #2:</strong> {client_2:226}</td>
 <td style="width: 70%;"><strong>Services:</strong> {services_2:227}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty($form_data['field_data'][228]['value']) ) : ?>
+<?php if ( !empty(trim($entry['228'])) ) : ?>
 <tr>
 <td style="width: 30%;"><strong>Client #3:</strong> {client_3:228}</td>
 <td style="width: 70%;"><strong>Services:</strong> {services_3:229}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty($form_data['field_data'][230]['value']) ) : ?>
+<?php if ( !empty(trim($entry['230'])) ) : ?>
 <tr>
 <td style="width: 30%;"><strong>Client #4:</strong> {client_4:230}</td>
 <td style="width: 70%;"><strong>Services:</strong> {services_4:231}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty($form_data['field_data'][232]['value']) ) : ?>
+<?php if ( !empty(trim($entry['232'])) ) : ?>
 <tr>
 <td style="width: 30%;"><strong>Client #5:</strong> {client_5:232}</td>
 <td style="width: 70%;"><strong>Services:</strong> {services_5:234}</td>
@@ -255,7 +260,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_1:243}</td>
 <td style="width: 30%;"><strong>Background in Security Business:</strong> {background_1:244}</td>
 </tr>
-<?php if ( !empty($form_data['field_data'][245]['value']) ) : ?>
+<?php if ( !empty(trim($entry['245'])) ) : ?>
 <tr>
 <td style="width: 25%;"><strong>Name #2:</strong> {name_2:245}</td>
 <td style="width: 25%;"><strong>Position:</strong> {position_2:246}</td>
@@ -263,7 +268,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 30%;"><strong>Background in Security Business:</strong> {background_2:248}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty($form_data['field_data'][249]['value']) ) : ?>
+<?php if ( !empty(trim($entry['249'])) ) : ?>
 <tr>
 <td style="width: 25%;"><strong>Name #3:</strong> {name_3:249}</td>
 <td style="width: 25%;"><strong>Position:</strong> {position_3:250}</td>
@@ -271,7 +276,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td style="width: 30%;"><strong>Background in Security Business:</strong> {background_3:252}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty($form_data['field_data'][253]['value']) ) : ?>
+<?php if ( !empty(trim($entry['253'])) ) : ?>
 <tr>
 <td style="width: 25%;"><strong>Name #4:</strong> {name_4:253}</td>
 <td style="width: 25%;"><strong>Position:</strong> {position_4:254}</td>
