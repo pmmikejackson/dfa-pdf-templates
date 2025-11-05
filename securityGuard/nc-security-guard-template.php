@@ -2,7 +2,7 @@
 
    /**
  * Template Name: NowCerts Security Guard Application
- * Version: Latest .21
+ * Version: Latest .22
  * Description: Security Guard Quote
  * Author: Mike Jackson
  * Author URI: https://mikejacksonpm.com
@@ -45,6 +45,15 @@
  * Fixed conditional logic for client and owner tables
  * Changed from $form_data['field_data'][id]['value'] to trim($entry[id]) for more reliable field detection
  * Ensures all filled client and owner rows display correctly in PDF output
+ *
+ * 2025-10-24 v.22
+ * Fixed owner table field ID mapping to match actual Gravity Form field IDs
+ * Owner #1: Updated from 241-244 to 237-240 (name, position, percentage, background)
+ * Owner #2: Updated from 245-248 to 241-244
+ * Owner #3: Updated from 249-252 to 246-249
+ * Owner #4: Updated from 253-256 to 250-253
+ * Added conditional check to owner #1 row (previously always displayed)
+ * Resolves bug where owner information was not displaying correctly in PDF output
 */
 
 /* Prevent direct access to the template (always good to include this) */
@@ -254,34 +263,36 @@ if ( ! class_exists( 'GFForms' ) ) {
 </table>
 <table style="width: 100%;" cellpadding="5" border="1">
 <tbody>
+<?php if ( !empty(trim($entry['237'])) ) : ?>
 <tr>
-<td style="width: 25%;"><strong>Name #1:</strong> {name_1:241}</td>
-<td style="width: 25%;"><strong>Position:</strong> {position_1:242}</td>
-<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_1:243}</td>
-<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_1:244}</td>
-</tr>
-<?php if ( !empty(trim($entry['245'])) ) : ?>
-<tr>
-<td style="width: 25%;"><strong>Name #2:</strong> {name_2:245}</td>
-<td style="width: 25%;"><strong>Position:</strong> {position_2:246}</td>
-<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_2:247}</td>
-<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_2:248}</td>
+<td style="width: 25%;"><strong>Name #1:</strong> {name_1:237}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_1:238}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_1:239}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_1:240}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty(trim($entry['249'])) ) : ?>
+<?php if ( !empty(trim($entry['241'])) ) : ?>
 <tr>
-<td style="width: 25%;"><strong>Name #3:</strong> {name_3:249}</td>
-<td style="width: 25%;"><strong>Position:</strong> {position_3:250}</td>
-<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_3:251}</td>
-<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_3:252}</td>
+<td style="width: 25%;"><strong>Name #2:</strong> {name_2:241}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_2:242}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_2:243}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_2:244}</td>
 </tr>
 <?php endif; ?>
-<?php if ( !empty(trim($entry['253'])) ) : ?>
+<?php if ( !empty(trim($entry['246'])) ) : ?>
 <tr>
-<td style="width: 25%;"><strong>Name #4:</strong> {name_4:253}</td>
-<td style="width: 25%;"><strong>Position:</strong> {position_4:254}</td>
-<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_4:255}</td>
-<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_4:256}</td>
+<td style="width: 25%;"><strong>Name #3:</strong> {name_3:246}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_3:247}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_3:248}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_3:249}</td>
+</tr>
+<?php endif; ?>
+<?php if ( !empty(trim($entry['250'])) ) : ?>
+<tr>
+<td style="width: 25%;"><strong>Name #4:</strong> {name_4:250}</td>
+<td style="width: 25%;"><strong>Position:</strong> {position_4:251}</td>
+<td style="width: 20%;"><strong>Percentage of Ownership:</strong> {percentage_4:252}</td>
+<td style="width: 30%;"><strong>Background in Security Business:</strong> {background_4:253}</td>
 </tr>
 <?php endif; ?>
 </tbody>
