@@ -395,6 +395,9 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td colspan="4"><strong>Shopping Services</strong> - Please describe events, locations and duties:</td>
 </tr>
 <tr>
+<td colspan="4">{shopping_services_duties:88}</td>
+</tr>
+<tr>
 <td colspan="4"><strong>Security Consulting</strong> - Please describe clients, scope of services performed & provide a sample contract: <img src="{sample_contract:90}"></td>
 </tr>
 <tr>
