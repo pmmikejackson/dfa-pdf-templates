@@ -2,7 +2,7 @@
 
    /**
  * Template Name: Alarm and Monitoring Quote - New
- * Version: 1.1
+ * Version: 1.2
  * Description: Alarm and Monitoring Quote - New
  * Author: Mike 
  * Author URI: https://www.dfainsure.com
@@ -13,6 +13,7 @@
  */
 
  /** 2025-08-27 v1.1 updated with new color and logo */
+/** 2025-11-06 v1.2 Updated field mapping: Applicant name split to first/last (field 101), added separate DBA field (field 2) */
 
 /* Prevent direct access to the template (always good to include this) */
 if ( ! class_exists( 'GFForms' ) ) {
@@ -61,22 +62,25 @@ if ( ! class_exists( 'GFForms' ) ) {
 </td>
 </tr>
 <tr>
-<td><strong>Applicant Legal Name (Including dba's):</strong>        {applicant_name:1}</td>
+<td><strong>Name to appear on company licence:</strong>        {company_name:102}</td>
 </tr>
 <tr>
-<td><strong>Name to appear on company licence:</strong>        {name_to_appear_on_company_license:2}</td>
+<td><strong>DBA:</strong>        {dba:2}</td>
 </tr>
 <tr>
-<td><strong>Owner:</strong>        {owner:3}   <strong>Contact Person/Title:</strong>        {contact_person:4}</td>
+<td><strong>Applicant Legal Name:</strong>        {applicant_name (First):101.3} {applicant_name (Last):101.6}</td>
+</tr>
+<tr>
+<td><strong>Owner:</strong>        {owner:4}   <strong>Contact Person/Title:</strong>        {contact_person:5}</td>
 </tr>
 </tbody>
 </table>
 <table width="100%" cellpadding="5">
 <tbody>
 <tr>
-<td><strong>Phone:</strong>        {phone:5}</td>
-<td><strong>Fax:</strong>        {fax:6}</td>
-<td><strong>Email Address:</strong>        {email_address:7}</td>
+<td><strong>Phone:</strong>        {phone:6}</td>
+<td><strong>Fax:</strong>        {fax:7}</td>
+<td><strong>Email Address:</strong>        {email_address:98}</td>
 </tr>
 </tbody>
 </table>
@@ -198,8 +202,6 @@ if ( ! class_exists( 'GFForms' ) ) {
 </tr>
 </tbody>
 </table>
-<!-- Basic Page Break -->
-<pagebreak/>
 <table width="100%" cellpadding="5">
 <tbody>
 <tr>
@@ -211,7 +213,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td><strong>Do you operate in any other states?</strong>        {operate_in_any_other_states:35}</td>
 </tr>
 <tr>
-<td><strong>If yes, please list:</strong>  {if_yes_please_list:36}</td>
+<td><strong>Other States we operate in:</strong>  {state_list:103}</td>
 </tr>
 <tr>
 <td>
