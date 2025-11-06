@@ -2,7 +2,7 @@
 
    /**
  * Template Name: Private Investigator Quote
- * Version: 1.1
+ * Version: 1.2
  * Description: Private Investigator Quote
  * Author: Mike
  * Author URI: https://www.dfainsure.com
@@ -14,6 +14,7 @@
 
 /** 2025-08-27 v1.0 created */
 /** 2025-11-05 v1.1 Updated Insured's Name and DBA to separate fields (128, 126) */
+/** 2025-11-06 v1.2 Fixed client table column mismatch (colspan 4->3) */
 
 /* Prevent direct access to the template (always good to include this) */
 if ( ! class_exists( 'GFForms' ) ) {
@@ -150,7 +151,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td colspan="4"><strong>If "Yes", please explain.</strong> <br />{if_yes_please_explain:23}</td>
 </tr>
 <tr>
-<td colspan="4"><strong>Please list your top 4 clients, the type of business they are, and the services provided</strong></td>
+<td colspan="3"><strong>Please list your top 4 clients, the type of business they are, and the services provided</strong></td>
 </tr>
 <tr>
 <td style="width: 25%;"><strong>Client #1</strong></td>
