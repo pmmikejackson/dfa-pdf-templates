@@ -383,6 +383,9 @@ if ( ! class_exists( 'GFForms' ) ) {
 <td colspan="4"><strong>If "Yes",</strong> please describe all operations/duties performed & <strong>provide resume</strong> <img src="{provide_resume:85}"></td>
 </tr>
 <tr>
+<td colspan="4">{describe_all_operations:84}</td>
+</tr>
+<tr>
 <td colspan="4"><strong>Fire/Arson</strong> - Please describe all operations/duties performed below:</td>
 </tr>
 <tr>
