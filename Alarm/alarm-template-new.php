@@ -78,8 +78,9 @@ if ( ! class_exists( 'GFForms' ) ) {
 <table width="100%" cellpadding="5">
 <tbody>
 <tr>
-<td><strong>Phone:</strong>        {phone:6}</td>
-<td><strong>Fax:</strong>        {fax:7}</td>
+<td><strong>Phone:</strong>        {phone:5}</td>
+<td><strong>Cell:</strong>        {phone:99}</td>
+<td><strong>Fax:</strong>        {fax:6}</td>
 <td><strong>Email Address:</strong>        {email_address:98}</td>
 </tr>
 </tbody>
